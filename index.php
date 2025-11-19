@@ -2,6 +2,21 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use \App\Controller\Pages\Home;
+use \App\Http\Router;
+use \App\Utils\View;
 
-echo Home::getHome();
+define('URL', 'http://localhost/Projeto-mvc');
+
+// Define o valor padrão das variáveis
+View::init ([
+    'URL' => URL
+]);
+
+// Inicia o Router
+$obRouter = new Router(URL);
+
+// Inclui as rotas de páginas
+include __DIR__ .'/routes/pages.php';
+
+// Imprime o Response da rota
+$obRouter->run()->sendReponse();

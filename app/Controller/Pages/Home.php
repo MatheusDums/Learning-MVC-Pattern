@@ -14,8 +14,7 @@ class Home extends Page {
 
         // View da home
         $content = View::render('pages/home', [
-            'name' => $organization->name,
-            'description' => $organization->description
+            'name' => $organization->name
         ]);
 
         // Retorna a view da página
